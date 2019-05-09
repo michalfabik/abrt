@@ -94,7 +94,7 @@ EXTRA_DIST +=  \
 	CCpp.conf.in
 endif
 
-CLEANFILES := $(notdir $(wildcard *~)) $(notdir $(wildcard *\#)) $(notdir $(wildcard \.\#*)) $(notdir $(wildcard *.pyc)) $(man1_MANS)
+CLEANFILES = $(man1_MANS)
 
 # Generate on build
 all: $(ALL_DEPENDENCES)
