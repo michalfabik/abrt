@@ -107,10 +107,16 @@ abrt-auto-reporting.txt: abrt-auto-reporting-unauthenticated.txt
 endif
 	cp $< $@
 
-%.1 %.5 %.8: %.xml
+.xml.1:
 	$(XMLTO_SILENT) xmlto man $< 2>&1 | sed '/Note/d'
 
-%.xml: %.txt ../asciidoc.conf
+.xml.5:
+	$(XMLTO_SILENT) xmlto man $< 2>&1 | sed '/Note/d'
+
+.xml.8:
+	$(XMLTO_SILENT) xmlto man $< 2>&1 | sed '/Note/d'
+
+.txt.xml: ../asciidoc.conf
 	$(ASCIIDOC_SILENT) asciidoc --backend=docbook --doctype=manpage \
                            --conf-file ../asciidoc.conf \
                            -aabrt_version=$(PACKAGE_VERSION) -o $@ $<
