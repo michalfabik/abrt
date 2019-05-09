@@ -138,5 +138,3 @@ $(IFACE_DEF_DIR)/org.freedesktop.Problems2.Task.xml:
 abrt_problems2_generated_interfaces.h: $(PROBLEMS2_XML_FILES)
 	echo "/* This file has been generated. Do not write any code here. */" > $@
 	for f in $^; do echo "const char *g_$$(basename $$f .xml | tr . _)_xml =" >> $@; sed -e 's/"/\\"/g' -e 's/^\(.*\)$$/"\1"/' $$f >> $@; echo ";" >> $@; done
-
-eventsconfdir = $(EVENTS_CONF_DIR)
