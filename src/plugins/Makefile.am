@@ -502,6 +502,6 @@ abrt-action-analyze-core: abrt-action-analyze-core.in
         -e s,\@PACKAGE\@,$(PACKAGE),g \
         $< >$@
 
-%.catalog: %.catalog.in
+$(dist_journalcatalog_DATA): $(dist_journalcatalog_DATA:=.in)
 	sed -e s,\@SUPPORT_URL\@,$(SUPPORT_URL),g \
         $< >$@
