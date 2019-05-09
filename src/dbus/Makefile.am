@@ -1,53 +1,53 @@
 sbin_PROGRAMS = \
-    abrt-dbus \
-    abrt-configuration
+	abrt-dbus \
+	abrt-configuration
 
 noinst_PROGRAMS = \
-    abrt-problems2
+	abrt-problems2
 
 noinst_LIBRARIES = \
-    libabrt-problems2-service.a
+	libabrt-problems2-service.a
 
 eventsconfdir = $(EVENTS_CONF_DIR)
 dist_eventsconf_DATA = \
-    abrt_dbus_event.conf
+	abrt_dbus_event.conf
 
 abrt_dbus_SOURCES = \
-    abrt-dbus.c \
-    abrt-polkit.c \
-    abrt-polkit.h
+	abrt-dbus.c \
+	abrt-polkit.c \
+	abrt-polkit.h
 abrt_dbus_CPPFLAGS = \
-    -I$(srcdir)/../include \
-    -I$(srcdir)/../lib \
-    -DVAR_RUN=\"$(VAR_RUN)\" \
-    $(GIO_CFLAGS) \
-    $(DBUS_CFLAGS) \
-    $(LIBREPORT_CFLAGS) \
-    $(POLKIT_CFLAGS) \
-    -D_GNU_SOURCE
+	-I$(srcdir)/../include \
+	-I$(srcdir)/../lib \
+	-DVAR_RUN=\"$(VAR_RUN)\" \
+	$(GIO_CFLAGS) \
+	$(DBUS_CFLAGS) \
+	$(LIBREPORT_CFLAGS) \
+	$(POLKIT_CFLAGS) \
+	-D_GNU_SOURCE
 abrt_dbus_LDADD = \
-    libabrt-problems2-service.a \
-    $(GIO_LIBS) \
-    $(DBUS_LIBS) \
-    ../lib/libabrt.la \
-    $(LIBREPORT_LIBS) \
-    $(POLKIT_LIBS) \
-    -labrt_dbus
+	libabrt-problems2-service.a \
+	$(GIO_LIBS) \
+	$(DBUS_LIBS) \
+	../lib/libabrt.la \
+	$(LIBREPORT_LIBS) \
+	$(POLKIT_LIBS) \
+	-labrt_dbus
 
 libabrt_problems2_service_a_SOURCES = \
-    abrt_problems2_service.c \
-    abrt_problems2_service.h \
-    abrt_problems2_session.c \
-    abrt_problems2_session.h \
-    abrt_problems2_entry.c \
-    abrt_problems2_entry.h \
-    abrt_problems2_task.c \
-    abrt_problems2_task.h \
-    abrt_problems2_task_new_problem.c \
-    abrt_problems2_task_new_problem.h
+	abrt_problems2_service.c \
+	abrt_problems2_service.h \
+	abrt_problems2_session.c \
+	abrt_problems2_session.h \
+	abrt_problems2_entry.c \
+	abrt_problems2_entry.h \
+	abrt_problems2_task.c \
+	abrt_problems2_task.h \
+	abrt_problems2_task_new_problem.c \
+	abrt_problems2_task_new_problem.h
 # Manual dependency
 libabrt_problems2_service_a-abrt_problems2_service.$(OBJEXT): \
-    abrt_problems2_generated_interfaces.h
+	abrt_problems2_generated_interfaces.h
 libabrt_problems2_service_a_CPPFLAGS = \
     -I$(srcdir)/../include \
     -I$(srcdir)/../lib \
